@@ -5,7 +5,6 @@ export default {
   name: "discourse-silenced-flair",
   initialize() {
     withPluginApi("0.1", (api) => {
-      console.log("hi");
       api.includePostAttributes("silenced");
 
       const h = require("virtual-dom").h;
