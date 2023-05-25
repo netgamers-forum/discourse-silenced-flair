@@ -14,5 +14,6 @@ register_asset "stylesheets/avatar-flair-silenced.scss"
 
 after_initialize do
   add_to_serializer(:post, :silenced) { object.user.silenced? }
+  add_to_serializer(:user_card, :silenced) { object.silenced? }
 end
 

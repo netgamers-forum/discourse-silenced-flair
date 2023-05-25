@@ -1,6 +1,7 @@
-{{log @outletArgs}}
-<div class="avatar-flair-silenced">
-  <span title="Silenced">
-    {{d-icon "microphone-slash"}}
-  </span>
-</div>
+{{#if @outletArgs.user.silenced}}
+  <div class="avatar-flair-silenced">
+    <span title="Silenced">
+      {{d-icon "microphone-slash"}}
+    </span>
+  </div>
+{{/if}}
