@@ -1,20 +1,18 @@
 # frozen_string_literal: true
 
-# name: discourse-plugin-name
-# about: TODO
+# name: discourse-silenced-flair
+# about: Adds a flair to silenced accounts, only visible to admins
 # version: 0.0.1
-# authors: Discourse
+# authors: chapoi
 # url: TODO
 # required_version: 2.7.0
 
-enabled_site_setting :plugin_name_enabled
+# enabled_site_setting :plugin_name_enabled
 
-module ::MyPluginModule
-  PLUGIN_NAME = "discourse-plugin-name"
-end
 
-require_relative "lib/my_plugin_module/engine"
+register_asset "stylesheets/avatar-flair-silenced.scss"
 
 after_initialize do
-  # Code which should run after Rails has finished booting
+  add_to_serializer(:post, :silenced) { object.user.silenced? }
 end
+

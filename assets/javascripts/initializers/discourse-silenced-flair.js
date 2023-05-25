@@ -5,7 +5,8 @@ export default {
   name: "discourse-silenced-flair",
   initialize() {
     withPluginApi("0.1", (api) => {
-      // api.includePostAttributes("avatar-flair-silenced"); //no clue what this does or how to use
+      console.log("hi");
+      api.includePostAttributes("silenced");
 
       const h = require("virtual-dom").h;
 
