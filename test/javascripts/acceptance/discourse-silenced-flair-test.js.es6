@@ -1,22 +1,25 @@
-import { acceptance } from "helpers/qunit-helpers";
-import { withPluginApi } from "discourse/lib/plugin-api";
-import { iconNode } from "discourse-common/lib/icon-library";
+import { visit } from "@ember/test-helpers";
+import { acceptance } from "discourse/tests/helpers/qunit-helpers";
+import { test } from "qunit";
+import userFixtures from "discourse/tests/fixtures/user-fixtures";
+import { cloneJSON } from "discourse-common/lib/object";
 
-acceptance("DiscourseSilencedFlair", {
-  loggedIn: true,
-  pretend(server, helper) {
-    server.get("/t/280/1.json", () => helper.response({}));
-  },
-});
+acceptance("Discourse Silenced Flair | User Profile", function (needs) {
+  needs.user();
 
-test("silenced flair is displayed", async (assert) => {
-  const user = Discourse.User.current();
-  user.set("silenced", true);
+  needs.pretender((server, helper) => {
+    const cardResponse = cloneJSON(userFixtures["/u/charlie/card.json"]);
+    cardResponse.user.silenced = true;
+    server.get("/u/charlie/card.json", () => helper.response(cardResponse));
+  });
 
-  await visit("/t/internationalization-localization/280");
+  test("user has silenced flair", async (assert) => {
+    await visit("/t/internationalization-localization/280");
+    await click('a[data-user-card="charlie"]');
 
-  assert.ok(
-    find(".avatar-flair-silenced__icon").length,
-    "silenced flair is displayed"
-  );
+    assert.ok(
+      find(".avatar-flair-silenced .microphone-slash"),
+      "silenced flair is displayed"
+    );
+  });
 });
