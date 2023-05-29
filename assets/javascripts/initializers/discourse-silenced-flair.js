@@ -8,6 +8,11 @@ export default {
       api.includePostAttributes("silenced");
 
       const h = require("virtual-dom").h;
+      const currentUser = api.getCurrentUser();
+
+      if (!(currentUser.moderator || currentUser.admin)) {
+        return;
+      }
 
       api.createWidget("avatar-flair-silenced", {
         tagName: "div.avatar-flair-silenced",
