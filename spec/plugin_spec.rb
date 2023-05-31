@@ -2,6 +2,11 @@
 
 require "rails_helper"
 
+Fabricator(:silenced) do
+  user_id { Fabricate(:user).id }
+  silenced { true }
+end
+
 describe ::DiscourseSilencedFlair do
   let(:user) { Fabricate.build(:user) }
   let!(:silenced) { Fabricate(:silenced, user_id: user.id) }
