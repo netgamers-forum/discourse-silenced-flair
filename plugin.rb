@@ -9,6 +9,10 @@
 
 enabled_site_setting :discourse_silenced_flair_enabled
 
+module ::DiscourseSilencedFlair
+  PLUGIN_NAME = "discourse-silenced-flair"
+end
+
 register_asset "stylesheets/avatar-flair-silenced.scss"
 
 after_initialize do
