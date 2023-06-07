@@ -3,4 +3,4 @@
 **Plugin Summary**
 Small plugin that shows a silenced flair when a user is silenced. This will overrule any regular flair.
 
-For more information, please see: **url to meta topic**
+For more information, please see: https://meta.discourse.org/t/silenced-avatar-flair
