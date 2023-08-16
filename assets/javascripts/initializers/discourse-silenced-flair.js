@@ -10,7 +10,7 @@ export default {
       const h = require("virtual-dom").h;
       const currentUser = api.getCurrentUser();
 
-      if (!(currentUser.moderator || currentUser.admin)) {
+      if ( !currentUser ) {
         return;
       }
 
