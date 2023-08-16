@@ -13,7 +13,8 @@ module ::DiscourseSilencedFlair
   PLUGIN_NAME = "discourse-silenced-flair"
 end
 
-register_asset "stylesheets/avatar-flair-silenced.scss"
+register_asset "stylesheets/desktop/avatar-flair-silenced.scss"
+register_asset "stylesheets/mobile/avatar-flair-silenced.scss"
 
 after_initialize do
   add_to_serializer(:post, :silenced) { object.user.silenced? }
