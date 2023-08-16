@@ -5,7 +5,7 @@
   background: var(--danger);
   color: var(--primary-low);
 
-  .topic-avatar & {
+  .mobile-view .mobile-device .topic-avatar & {
     width: 24px;
     height: 24px;
     bottom: -2px;
@@ -13,7 +13,7 @@
     font-size: var(--font-up-1);
   }
 
-  .user-card-avatar & {
+  .mobile-view .mobile-device .user-card-avatar & {
     width: 40px;
     height: 40px;
     bottom: -2px;
@@ -21,7 +21,7 @@
     font-size: var(--font-up-4);
   }
 
-  .user-main .user-profile-avatar & {
+  .mobile-view .mobile-device .user-main .user-profile-avatar & {
     width: 40px;
     height: 40px;
     bottom: 8px;
