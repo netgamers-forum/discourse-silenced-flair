@@ -5,34 +5,31 @@
   background: var(--danger);
   color: var(--primary-low);
 
-  .topic-avatar & {
+  .desktop-view .not-mobile-device .topic-avatar & {
     width: 24px;
     height: 24px;
     top: 35px;
     right: 40px;
-    bottom: unset;
     font-size: var(--font-up-1);
   }
 
-  .user-card-avatar & {
+  .desktop-view .not-mobile-device .user-card-avatar & {
     width: 40px;
     height: 40px;
     top: -15px;
     right: -5px;
-    bottom: unset;
     font-size: var(--font-up-4);
   }
 
-  .user-main .collapsed-info .user-profile-avatar & {
+  .desktop-view .not-mobile-device .user-main .collapsed-info .user-profile-avatar & {
     display: none;
   }
 
-  .user-main .user-profile-avatar & {
+  .desktop-view .not-mobile-device .user-main .user-profile-avatar & {
     width: 40px;
     height: 40px;
     top: -10px;
     right: 15px;
-    bottom: unset;
     font-size: var(--font-up-5);
   }
 }
